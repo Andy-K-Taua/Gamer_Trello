@@ -22,7 +22,7 @@ const HOST = '0.0.0.0'; // Bind to 0.0.0.0 for Rende
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://gamer-trello.onrender.com",
     credentials: true,
 }));
 

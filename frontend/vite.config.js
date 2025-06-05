@@ -9,7 +9,7 @@ export default defineConfig({
   server: {
     hmr: true,
     proxy: {
-      '/api': 'http://localhost:5001', // forward requests to your API server
+      '/api': 'https://gamer-trello.onrender.com', // forward requests to your API server
     },
   },
 })
