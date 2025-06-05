@@ -16,7 +16,8 @@ const app = express();
 app.use(express.json());
 
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 10000; // Default port for Render
+const HOST = '0.0.0.0'; // Bind to 0.0.0.0 for Rende
 
 app.use(express.json());
 app.use(cookieParser());
@@ -29,7 +30,7 @@ app.use("/api/auth", authRoutes)
 app.use("/api/subscriptions", subscriptionRoutes);
 app.use('/api', gamesRoute);
 
-app.listen(PORT, () => {
-    console.log("server is running on port: " + PORT);
+app.listen(PORT, HOST, () => {
+    console.log(`server is running on port ${HOST}:${PORT}`);
     connectDB()
 }); 
