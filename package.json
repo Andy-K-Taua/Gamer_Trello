@@ -1,0 +1,17 @@
+{
+  "author": "",
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "gamer-trello",
+  "scripts": {
+    "backend": "npm run dev --prefix backend",
+    "dev": "concurrently \"npm run frontend\" \"npm run backend\"",
+    "frontend": "npm run dev --prefix frontend"
+  },
+  "version": "1.0.0"
+}
