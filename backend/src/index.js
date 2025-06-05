@@ -26,6 +26,10 @@ app.use(cors({
     credentials: true,
 }));
 
+app.get('/', (req, res) => {
+    res.send('Welcome to Gamer Trello!');
+  });
+
 app.use("/api/auth", authRoutes)
 app.use("/api/subscriptions", subscriptionRoutes);
 app.use('/api', gamesRoute);
