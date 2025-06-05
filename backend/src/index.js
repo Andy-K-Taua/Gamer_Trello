@@ -9,10 +9,14 @@ import authRoutes from "../routes/auth.route.js";
 import subscriptionRoutes from "../routes/subscription.route.js";
 import gamesRoute from '../routes/games.route.js';
 import cors from "cors";
-import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
 
 
 dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const app = express();
 const frontendBuildPath = path.resolve(__dirname, '../../frontend/dist');
 
