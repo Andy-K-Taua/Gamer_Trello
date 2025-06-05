@@ -11,7 +11,7 @@ import gamesRoute from '../routes/games.route.js';
 import cors from "cors";
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
-
+import path from 'node:path';
 
 dotenv.config();
 
