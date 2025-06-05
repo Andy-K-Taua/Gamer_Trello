@@ -9,15 +9,22 @@ import authRoutes from "../routes/auth.route.js";
 import subscriptionRoutes from "../routes/subscription.route.js";
 import gamesRoute from '../routes/games.route.js';
 import cors from "cors";
+import path from 'path';
+
 
 dotenv.config();
 const app = express();
+const frontendBuildPath = path.join(process.cwd(), 'frontend/dist');
 
 app.use(express.json());
+app.use(express.static(frontendBuildPath));
 
+app.get('/', (req, res) => {
+    res.sendFile(path.join(frontendBuildPath, 'index.html'));
+  });
 
 const PORT = process.env.PORT || 10000; // Default port for Render
-const HOST = '0.0.0.0'; // Bind to 0.0.0.0 for Rende
+const HOST = '0.0.0.0'; // Bind to 0.0.0.0 for Render
 
 app.use(express.json());
 app.use(cookieParser());
