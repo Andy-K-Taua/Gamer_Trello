@@ -14,7 +14,7 @@ import path from 'path';
 
 dotenv.config();
 const app = express();
-const frontendBuildPath = './frontend/dist';
+const frontendBuildPath = path.resolve('./frontend/dist');
 
 app.use(express.json());
 app.use(express.static(frontendBuildPath));
