@@ -33,7 +33,7 @@ const HOST = '0.0.0.0'; // Bind to 0.0.0.0 for Render
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: 'https://your-frontend-domain.com',
     credentials: true,
 }));
 

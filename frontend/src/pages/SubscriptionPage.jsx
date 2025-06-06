@@ -25,8 +25,10 @@ const SubscriptionPage = () => {
     const getUserId = async () => {
       try {
         const response = await axiosInstance.get('/auth/check');
+        console.log('Response:', response);
         console.log('Response data:', response.data);
         if (response.data && response.data.authUser && response.data.authUser._id) {
+          console.log('Setting user ID:', response.data.authUser._id);
           setUserId(response.data.authUser._id);
         } else {
           console.error('User ID not found in response');

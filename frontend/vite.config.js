@@ -6,6 +6,7 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
   ],
+  envDir: '../backend',
   server: {
     hmr: true,
     proxy: {

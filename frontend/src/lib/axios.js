@@ -1,8 +1,19 @@
 // frontend/src/lib/axios.js
 
-import axios from "axios";
+import axios from 'axios';
 
-export const axiosInstance = axios.create({
-    baseURL: "http://localhost:5001/api",
-    withCredentials: true,
-})
+const isDevelopment = process.env.NODE_ENV === 'development';
+console.log('Is development:', isDevelopment);
+
+const baseURL = isDevelopment
+    ? import.meta.env.VITE_API_URL
+    : '/api';
+
+    console.log(baseURL);
+
+const axiosInstance = axios.create({
+    baseURL: '/api',
+    
+});
+
+export { axiosInstance };
