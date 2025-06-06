@@ -36,11 +36,14 @@ export const useAuthStore = create((set) => ({
 
     signup: async (data) => {
         set({ isSigningUp: true });
+        console.log("Making API request to /api/auth/signup");
         try {
-            const res = await axiosInstance.post("/auth/signup", data);
+            const res = await axiosInstance.post("/api/auth/signup", data);
+            console.log("API request successful:", res);
             set({ authUser: res.data });
             return res; // Return the response object
         } catch (error) {
+            console.error("Error making API request:", error);
             handleError(error);
             throw error; // Throw the error
         } finally {

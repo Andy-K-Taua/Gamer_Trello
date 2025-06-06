@@ -11,9 +11,13 @@ const baseURL = isDevelopment
 
     console.log(baseURL);
 
+
 const axiosInstance = axios.create({
-    baseURL: '/api',
+    baseURL: isDevelopment ? import.meta.env.VITE_API_URL : '/api',
     
 });
+
+console.log("axiosInstance.defaults.baseURL:", axiosInstance.defaults.baseURL);
+
 
 export { axiosInstance };

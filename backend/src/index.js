@@ -20,7 +20,6 @@ const __dirname = dirname(__filename);
 const app = express();
 const frontendBuildPath = path.resolve(__dirname, '../../frontend/dist');
 
-app.use(express.json());
 app.use(express.static(frontendBuildPath));
 
 app.get('/', (req, res) => {
@@ -33,12 +32,13 @@ const HOST = '0.0.0.0'; // Bind to 0.0.0.0 for Render
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: 'https://your-frontend-domain.com',
+    origin: ['*'],
     credentials: true,
 }));
 
 
-app.use("/api/auth", authRoutes)
+app.use("/api/auth", authRoutes);
+
 app.use("/api/subscriptions", subscriptionRoutes);
 app.use('/api', gamesRoute);
 
