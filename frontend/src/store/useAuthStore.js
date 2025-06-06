@@ -23,22 +23,27 @@ export const useAuthStore = create((set) => ({
 
     checkAuth: async () => {
         try {
+            console.log("Checking authentication...");
+
             const res = await axiosInstance.get("/auth/check");
+
+            console.log("Authentication successful. User data:", res.data);
             set({ authUser: res.data });
         } catch (error) {
             console.log("Error in checkAuth:", error);
             set({ authUser: null });
             handleError(error);
         } finally {
+            console.log("Finished checking authentication.");
             set({ isCheckingAuth: false });
         }
     },
 
     signup: async (data) => {
         set({ isSigningUp: true });
-        console.log("Making API request to /api/auth/signup");
+        console.log("Making API request to /auth/signup");
         try {
-            const res = await axiosInstance.post("/api/auth/signup", data);
+            const res = await axiosInstance.post("/auth/signup", data);
             console.log("API request successful:", res);
             set({ authUser: res.data });
             return res; // Return the response object
