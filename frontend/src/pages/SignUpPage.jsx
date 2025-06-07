@@ -92,11 +92,12 @@ const SignUpPage = () => {
             <form onSubmit={handleSubmit} className='space-y-6'>
 
               <fieldset className="fieldset">
-                <label className="label">Email</label>
+                <label className="label" htmlFor="email">Email</label>
                 <div className="flex items-center input rounded-[15px]">
                   <Mail className="size-5 text-base-content/40 mr-2" />
                   <input
                     type="email"
+                    name="email"
                     className="flex-1 border-none outline-none bg-transparent"
                     placeholder="Email"
                     value={formData.email}
@@ -105,11 +106,12 @@ const SignUpPage = () => {
                   />
                 </div>
 
-                <label className="label">Password</label>
+                <label className="label" htmlFor='password'>Password</label>
                 <div className="flex items-center input rounded-[15px]">
                   <Lock className="size-5 text-base-content/40 mr-2" />
                   <input
                     type={showPassword ? "text" : "password"}
+                    name="password"
                     className="flex-1 border-none outline-none bg-transparent"
                     placeholder="Password"
                     value={formData.password}
@@ -132,7 +134,9 @@ const SignUpPage = () => {
                 <button className="btn btn-outline btn-success w-80"
                   type="submit"
                   style={{ marginTop: '20px', borderRadius: '15px' }}
-                  disabled={isSigningUp}>
+                  disabled={isSigningUp}
+                  onClick={() => console.log('Button clicked!')}
+                  >
                   {isSigningUp ? (
                     <>
                       <Loader2 className="size-5 animate-spin" />

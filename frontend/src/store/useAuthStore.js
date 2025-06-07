@@ -48,7 +48,7 @@ export const useAuthStore = create((set) => ({
             set({ authUser: res.data });
             return res; // Return the response object
         } catch (error) {
-            console.error("Error making API request:", error);
+            console.error("Error making API request uce:", error);
             handleError(error);
             throw error; // Throw the error
         } finally {
